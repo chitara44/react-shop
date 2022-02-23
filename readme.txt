@@ -1,1 +1,1 @@
-this is text toi guide every one in the faster development flow
+this is a text to guide everyone for a faster development flow
