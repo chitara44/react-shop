@@ -4,11 +4,9 @@
   "description": "react eshop",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chitara44/react-shop.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --open",
+    "build": "webpack --mode production"
   },
   "keywords": [
     "react",
@@ -17,12 +15,31 @@
   ],
   "author": "Ricardo Naranjo <chitara44@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/chitara44/react-shop/issues"
-  },
   "homepage": "https://github.com/chitara44/react-shop#readme",
   "dependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "devDependencies": {
+    "css-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "sass": "^1.38.0",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chitara44/react-shop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chitara44/react-shop/issues"
   }
 }
