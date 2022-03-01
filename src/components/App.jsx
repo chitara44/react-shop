@@ -47,15 +47,15 @@ Button.defaultProps = {
 };
 
 function clickMe() {
-  alert("You clicked me!");
-}
+  theme: "blue"
+};
 
 const ButtonToggle = styled(Button)`
   opacity: 0.7;
   ${({ active }) =>
     active &&
     `
-    opacity: 1; 
+    opacity: 0.3; 
   `}
 `;
 
@@ -116,22 +116,58 @@ export default function App() {
     return (
       <>
       <div>
-          <h1>Hello World, Welcome to React Hands-On Course!</h1>
+          <h1>A grid to Introduce the numbers!</h1>
       </div>
         
         <div>
-          <Button onClick={clickMe}>Button</Button>
+          <Button theme="pink" onClick={clickMe}>1</Button>
+          <Button theme="pink" onClick={clickMe}>2</Button>
+          <Button theme="pink" onClick={clickMe}>3</Button>
+          <Button theme="pink" onClick={clickMe}>4</Button>
+          <Button theme="pink" onClick={clickMe}>5</Button>
+          <Button theme="pink" onClick={clickMe}>6</Button>
+          <Button theme="pink" onClick={clickMe}>7</Button>
+          <Button theme="pink" onClick={clickMe}>8</Button>
+          <Button theme="pink" onClick={clickMe}>9</Button>
+          <Button theme="pink" onClick={clickMe}>10</Button>
+          <Button theme="pink" onClick={clickMe}>10</Button>
+          <Button theme="pink" onClick={clickMe}>11</Button>
+          <Button theme="pink" onClick={clickMe}>13</Button>
+          <Button theme="pink" onClick={clickMe}>14</Button>
+          <Button theme="pink" onClick={clickMe}>15</Button>
         </div>
         <div>
-          <Button theme="pink" onClick={clickMe}>
-            Pink theme
-          </Button>
-        </div>
+          <Button theme="pink" onClick={clickMe}>16</Button>
+          <Button theme="pink" onClick={clickMe}>17</Button>
+          <Button theme="pink" onClick={clickMe}>18</Button>
+          <Button theme="pink" onClick={clickMe}>19</Button>
+          <Button theme="pink" onClick={clickMe}>20</Button>
+          <Button theme="pink" onClick={clickMe}>21</Button>
+          <Button theme="pink" onClick={clickMe}>22</Button>
+          <Button theme="pink" onClick={clickMe}>23</Button>
+          <Button theme="pink" onClick={clickMe}>24</Button>
+          <Button theme="pink" onClick={clickMe}>25</Button>
+          <Button theme="pink" onClick={clickMe}>26</Button>
+          <Button theme="pink" onClick={clickMe}>27</Button>
+          <Button theme="pink" onClick={clickMe}>28</Button>
+          <Button theme="pink" onClick={clickMe}>29</Button>          
+        </div>        
         <div>
-          <Button disabled onClick={clickMe}>
-            Disabled
-          </Button>
-        </div>
+          <Button theme="pink" onClick={clickMe}>30</Button>
+          <Button theme="pink" onClick={clickMe}>31</Button>
+          <Button theme="pink" onClick={clickMe}>32</Button>
+          <Button theme="pink" onClick={clickMe}>33</Button>
+          <Button theme="pink" onClick={clickMe}>34</Button>
+          <Button theme="pink" onClick={clickMe}>35</Button>
+          <Button theme="pink" onClick={clickMe}>36</Button>
+          <Button theme="pink" onClick={clickMe}>37</Button>
+          <Button theme="pink" onClick={clickMe}>38</Button>
+          <Button theme="pink" onClick={clickMe}>39</Button>
+          <Button theme="pink" onClick={clickMe}>40</Button>
+          <Button theme="pink" onClick={clickMe}>41</Button>
+          <Button theme="pink" onClick={clickMe}>42</Button>
+          <Button theme="pink" onClick={clickMe}>43</Button>
+        </div>        
         <a href="https://react.school" target="_blank">
           <Button>Link</Button>
         </a>
