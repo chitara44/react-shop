@@ -22,6 +22,8 @@ const theme = {
   }
 };
 
+var numeros = null;
+
 const Button = styled.button`
   background-color: ${(props) => theme[props.theme].default};
   color: white;
@@ -46,9 +48,6 @@ Button.defaultProps = {
   theme: "blue"
 };
 
-function clickMe() {
-  theme: "blue"
-};
 
 const ButtonToggle = styled(Button)`
   opacity: 0.7;
@@ -76,24 +75,17 @@ const Tab = styled.button`
   `}
 `;
 
-function TabGroup() {
-  const [active, setActive] = useState(types[0]);
+const numTypes = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"];
+function clickMe() {
+  const [active, setActive] = useState(numTypes[0]);
   return (
-    <>
-      <div>
-        {types.map((type) => (
-          <Tab
-            key={type}
-            active={active === type}
-            onClick={() => setActive(type)}
-          >
-            {type}
-          </Tab>
-        ))}
-      </div>
-      <p />
-      <p> Your payment selection: {active} </p>
-    </>
+    <div>
+      {numTypes.map((type) => (
+        <ButtonToggle active={active === type} onClick={() => setActive(type)}>
+          {type}
+        </ButtonToggle>
+      ))}
+    </div>
   );
 }
 
@@ -120,28 +112,30 @@ export default function App() {
       </div>
         
         <div>
-          <Button theme="pink" onClick={clickMe}>1</Button>
-          <Button theme="pink" onClick={clickMe}>2</Button>
-          <Button theme="pink" onClick={clickMe}>3</Button>
-          <Button theme="pink" onClick={clickMe}>4</Button>
-          <Button theme="pink" onClick={clickMe}>5</Button>
-          <Button theme="pink" onClick={clickMe}>6</Button>
-          <Button theme="pink" onClick={clickMe}>7</Button>
-          <Button theme="pink" onClick={clickMe}>8</Button>
-          <Button theme="pink" onClick={clickMe}>9</Button>
+          <Button theme="pink" onClick={clickMe}>01</Button>
+          <Button theme="pink" onClick={clickMe}>02</Button>
+          <Button theme="pink" onClick={clickMe}>03</Button>
+          <Button theme="pink" onClick={clickMe}>04</Button>
+          <Button theme="pink" onClick={clickMe}>05</Button>
+          <Button theme="pink" onClick={clickMe}>06</Button>
+          <Button theme="pink" onClick={clickMe}>07</Button>
+          <Button theme="pink" onClick={clickMe}>08</Button>
+          <Button theme="pink" onClick={clickMe}>09</Button>
           <Button theme="pink" onClick={clickMe}>10</Button>
-          <Button theme="pink" onClick={clickMe}>10</Button>
+        </div>
+        <div>
           <Button theme="pink" onClick={clickMe}>11</Button>
+          <Button theme="pink" onClick={clickMe}>12</Button>
           <Button theme="pink" onClick={clickMe}>13</Button>
           <Button theme="pink" onClick={clickMe}>14</Button>
           <Button theme="pink" onClick={clickMe}>15</Button>
-        </div>
-        <div>
           <Button theme="pink" onClick={clickMe}>16</Button>
           <Button theme="pink" onClick={clickMe}>17</Button>
           <Button theme="pink" onClick={clickMe}>18</Button>
           <Button theme="pink" onClick={clickMe}>19</Button>
           <Button theme="pink" onClick={clickMe}>20</Button>
+        </div>
+        <div>
           <Button theme="pink" onClick={clickMe}>21</Button>
           <Button theme="pink" onClick={clickMe}>22</Button>
           <Button theme="pink" onClick={clickMe}>23</Button>
@@ -151,9 +145,9 @@ export default function App() {
           <Button theme="pink" onClick={clickMe}>27</Button>
           <Button theme="pink" onClick={clickMe}>28</Button>
           <Button theme="pink" onClick={clickMe}>29</Button>          
+          <Button theme="pink" onClick={clickMe}>30</Button>
         </div>        
         <div>
-          <Button theme="pink" onClick={clickMe}>30</Button>
           <Button theme="pink" onClick={clickMe}>31</Button>
           <Button theme="pink" onClick={clickMe}>32</Button>
           <Button theme="pink" onClick={clickMe}>33</Button>
@@ -164,15 +158,17 @@ export default function App() {
           <Button theme="pink" onClick={clickMe}>38</Button>
           <Button theme="pink" onClick={clickMe}>39</Button>
           <Button theme="pink" onClick={clickMe}>40</Button>
+        </div>
+        <div>
           <Button theme="pink" onClick={clickMe}>41</Button>
           <Button theme="pink" onClick={clickMe}>42</Button>
           <Button theme="pink" onClick={clickMe}>43</Button>
         </div>        
         <a href="https://react.school" target="_blank">
-          <Button>Link</Button>
+          <Button id="element" ></Button>
         </a>
         <ToggleGroup />
-        <TabGroup />
+
       </>
     );
   }
