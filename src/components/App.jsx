@@ -1,6 +1,9 @@
 import '../styles/global.scss';
-import React, { useState } from "react";
-import styled from "styled-components";
+import '../components/Button.scss';
+import NumberList from './Button'; 
+import React, { useState, Component } from "react";
+import PropTypes from 'prop-types';
+// import styles from './styles.module.sass';
 
 // Watch the Button tutorial
 // http://react.school/ui/button
@@ -11,115 +14,25 @@ import styled from "styled-components";
 // Free Material-UI template
 // http://react.school/material-ui/templates
 
-const theme = {
-  blue: {
-    default: "#3f51b5",
-    hover: "#283593"
-  },
-  pink: {
-    default: "#e91e63",
-    hover: "#ad1457"
-  }
-};
-
-var numeros = null;
-
-const Button = styled.button`
-  background-color: ${(props) => theme[props.theme].default};
-  color: white;
-  padding: 5px 15px;
-  border-radius: 5px;
-  outline: 0;
-  text-transform: uppercase;
-  margin: 10px 0px;
-  cursor: pointer;
-  box-shadow: 0px 2px 2px lightgray;
-  transition: ease background-color 250ms;
-  &:hover {
-    background-color: ${(props) => theme[props.theme].hover};
-  }
-  &:disabled {
-    cursor: default;
-    opacity: 0.7;
-  }
-`;
-
-Button.defaultProps = {
-  theme: "blue"
-};
-
-
-const ButtonToggle = styled(Button)`
-  opacity: 0.7;
-  ${({ active }) =>
-    active &&
-    `
-    opacity: 0.3; 
-  `}
-`;
-
-const Tab = styled.button`
-  padding: 10px 30px;
-  cursor: pointer;
-  opacity: 0.6;
-  background: white;
-  border: 0;
-  outline: 0;
-  border-bottom: 2px solid transparent;
-  transition: ease border-bottom 250ms;
-  ${({ active }) =>
-    active &&
-    `
-    border-bottom: 2px solid black;
-    opacity: 1;
-  `}
-`;
-
-
-
-const numTypes = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-"21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43" ];
-
-function ArrayNums() {
-  const [active, setActive] = useState(numTypes[-1]);
-  return (
-    <div>
-      {numTypes.map((type) => (
-        <ButtonToggle active={active === type} onClick={() => setActive(type)}>
-          {type}
-        </ButtonToggle>
-      ))}
-    </div>
-  );
-}
-
-const types = ["Cash", "Credit Card", "Bitcoin", "Prepaid card"];
-
-function ToggleGroup() {
-  const [active, setActive] = useState(types[0]);
-  return (
-    <div>
-      {types.map((type) => (
-        <ButtonToggle active={active === type} onClick={() => setActive(type)}>
-          {type}
-        </ButtonToggle>
-      ))}
-    </div>
-  );
-}
-
-export default function App() {
+const numbers = [                           {id: 1, name: '01',isSelected: true}, {id: 2, name: '02', isSelected: true}, {id: 3, name: '03', isSelected: true}, {id: 4, name: '04', isSelected: true}, {id: 5, name: '05', isSelected: true}, {id: 6, name: '06', isSelected: false}, {id: 7, name: '07', isSelected: true}, {id: 8, name: '08', isSelected: true}, {id: 9, name: '09', isSelected: true},
+   {id: 10, name: '10', isSelected: true},{id: 11, name: '11', isSelected: true},{id: 12, name: '12', isSelected: true},{id: 13, name: '13', isSelected: true},{id: 14, name: '14', isSelected: true},{id: 15, name: '15', isSelected: true},{id: 16, name: '16', isSelected: false},{id: 17, name: '17', isSelected: true},{id: 18, name: '18', isSelected: true},{id: 19, name: '19', isSelected: true},
+   {id: 20, name: '20', isSelected: true},{id: 21, name: '21', isSelected: true},{id: 22, name: '22', isSelected: true},{id: 23, name: '23', isSelected: true},{id: 24, name: '24', isSelected: true},{id: 25, name: '25', isSelected: true},{id: 26, name: '26', isSelected: false},{id: 27, name: '27', isSelected: true},{id: 28, name: '28', isSelected: true},{id: 29, name: '29', isSelected: true},
+   {id: 30, name: '30', isSelected: true},{id: 31, name: '31', isSelected: true},{id: 32, name: '32', isSelected: true},{id: 33, name: '33', isSelected: true},{id: 34, name: '34', isSelected: true},{id: 35, name: '35', isSelected: true},{id: 36, name: '36', isSelected: false},{id: 37, name: '37', isSelected: true},{id: 38, name: '38', isSelected: true},{id: 39, name: '39', isSelected: true},
+   {id: 40, name: '40', isSelected: true},{id: 41, name: '41', isSelected: true},{id: 42, name: '42', isSelected: true},{id: 43, name: '43', isSelected: true}];
+const superbal = [  {id: 1, name: '01',isSelected: true}, {id: 2, name: '02', isSelected: true}, {id: 3, name: '03', isSelected: true}, {id: 4, name: '04', isSelected: true}, {id: 5, name: '05', isSelected: true}, {id: 6, name: '06', isSelected: false}, {id: 7, name: '07', isSelected: true}, 
+                    {id: 8, name: '08', isSelected: true}, {id: 9, name: '09', isSelected: true},   {id: 10, name: '10', isSelected: true},{id: 11, name: '11', isSelected: true},{id: 12, name: '12', isSelected: true},{id: 13, name: '13', isSelected: true},{id: 14, name: '14', isSelected: true},{id: 15, name: '15', isSelected: true},{id: 16, name: '16', isSelected: true}];
+   export default function App() {
     return (
       <>
       <div>
-          <h1>A grid to Introduce the numbers!</h1>
+          <h1>A grid to input baloto's number!</h1>
       </div>
-        <a href="https://react.school" target="_blank">
-          <Button id="element" ></Button>
-        </a>
-        <ArrayNums />
-        <ToggleGroup />
-
+      {/* <NumberList numbers={numbers} /> */}
+      <NumberList numbers={superbal} />
       </>
     );
   }
+
+
+
+
