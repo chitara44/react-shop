@@ -84,11 +84,9 @@ function clickeado (props) {
     console.log(props);
     state.sum += props;
     state.count += 1;
-    console.log(state.concatened);
     console.log(state.concatened.length);
     alert('Hello, ', id);
-    state.concatened = (state.concatened.length > 0 ) ? state.concatened + ',' + props: props; 
-    // elegidos = elegidos + {props.value.toString()};
+    state.concatened = (state.concatened.length > 0 ) ? state.concatened.toString() + ',' + props.toString(): props.toString(); 
     console.log(state.count);
     console.log(state.concatened);
     return <label value={state.count} ></label>
