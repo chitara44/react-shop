@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState} from "react";
 import styled from "styled-components";
 import '../styles/global.scss';
 import "./Button.scss";
@@ -66,56 +66,81 @@ Button.defaultProps = {
     `}
     `;
 
-var state = {count:0, sum:0, concatened:""}; 
-    
-const ExampleComponent = () => {
-  
-    function sayHello(name) {
-      alert(`hello, ${name}`);
-    }
-    
-    return (
-      <button onClick={() => sayHello('James')}>Greet</button>
-    );
-  }
+var state = {count:0, sum:0, concatened:"", selected: false}; 
 
+function reorder(numbers){
+    if(numbers.length > 0){
+        console.log(numbers.length);
+    } 
+    return state.concatened;
+}
+
+function quitar_Reordenar(id) {
+var numberslist = state.concatened.split(',').sort();
+console.log(numberslist);
+var founded = numberslist.find(id);
+var exist = numberslist.pop(id);
+alert('Hello, unselected2');
+console.log('exist', exist);
+console.log(numberslist);
+return founded;
+}
+    
 function clickeado (props) {
     const id = props.id;
     console.log(props);
     state.sum += props;
     state.count += 1;
-    console.log(state.concatened.length);
-    alert('Hello, ', id);
-    state.concatened = (state.concatened.length > 0 ) ? state.concatened.toString() + ',' + props.toString(): props.toString(); 
-    console.log(state.count);
-    console.log(state.concatened);
-    return <label value={state.count} ></label>
-}
+    // console.log('concatenated length', state.concatened.length);
+    console.log('antes', state);
+    state.selected = (state.selected) ? false:true;
+    if (state.selected){ 
+        state.concatened = (state.concatened.length > 0 ) ? state.concatened.toString() + ',' + props.toString(): props.toString(); 
+        alert('Hello, selected');
+    }
+    else
+    {
+        alert('Hello, unselected');
+        console.log('valor Id',id);
+        state.concatened = (state.concatened.length > 0 ) ? quitar_Reordenar(id) : "";
+    }
+    console.log(state);
+    // console.log(state.concatened);
+    return (
+        <div>
+            <label value={state.concatened} >{state.concatened}</label>
+        </div>
+        );
+    }
+
+// function seleccionados
 
 
 function Buttons(props){
     const id = props.id;
-    // alert('props, ', id);
-    console.log(id);
-    return <button variant="outlined" value = {props.value} onClick={() => clickeado(props.id)}>{props.value}</button>;
-    // return <button variant="outlined" value = {props.value} onClick={() => this.clickeado(e.target.value)}>{props.value}</button>;
-    // return <button onClick={() => {
-    //     const name = 'James';
-    //     alert('Hello, ', props.value);
-    //   }}>
-    //     {props.value}
-    //   </button>
-    // return <button value="blue" onClick={e => changeColor(e.target.value)}>Color Change</button>;
+    console.log('Buttons function', id);
+    return (
+        <ul>
+            <button theme="pink" variant="outlined" value = {props.value} onClick={() => clickeado(props.id)}>{props.value}</button> 
+        </ul>
+    ) 
 }
-  
+
 function NumberList(props) {
-const numbers = props.numbers;
-const botones = numbers.map((number) =>
+    const numbers = props.numbers;
+    const botones = numbers.map((number) =>
     <Buttons id={number.id} key ={number.id} value={number.name} />)
-return (
-    <ul>
+    // console.log({botones});
+    alert("hey there!");
+    const [state, setState] = useState(true);
+    const label = state.concatened;
+return ( 
+     <> 
     {botones}
-    </ul>
+    <p>
+        {label}
+    </p>
+     </> 
 );
 }
 
